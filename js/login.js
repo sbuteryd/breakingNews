@@ -1,11 +1,11 @@
 $(function () {
     //点击注册 隐藏登录
-    $('#form-reg').on('click',function () {
+    $('#register-btn').on('click',function () {
         $('.login-box').hide()
         $('.regster-box').show()
     })
     //点击登录 隐藏注册
-    $('#from-login').on('click',function () {
+    $('#login-btn').on('click',function () {
         $('.regster-box').hide()
         $('.login-box').show()
     })
@@ -21,9 +21,7 @@ form.verify({
     ],
     repassword: function(value, item){ //value：表单的值、item：表单的DOM对象
         let password = $('.regster-box [name=password]').val()
-        console.log('password',password)
-        console.log(value)
-        if(password !== value) {
+         if(password !== value) {
             return '两次密码不一致'
         }
     }
@@ -32,17 +30,43 @@ form.verify({
 
 });
 // 监听表单事件 -注册
-$('.register').on("submit",function (e) {
-    e.preventDefault()
-    //    获取表单数据
-
-
+$('#form-register').on("submit",function (e) {
+    e.preventDefault();
+    //获取表单数据
+    let data = {
+        username:$('.regster-box [name="username"]').val(),
+        password:$('.regster-box [name="password"]').val()
+    };
     $.ajax({
-        type: "method",
-        url: "url",
-        data: "data",
-        dataType: "dataType",
-        success: function (response) {
+        type: "post",
+        url: "/api/reguser",
+        data:data,
+        success: function (res) {
+            console.log(res)
+        // 注册成功返回 0成功 1失败
+            if(res.status !==0){
+                return layer.msg(res.message);
+            }
+            $('#login-btn').click()
+            return layer.msg(res.message);
+        }
+    });
+})
+
+// 登录请求
+$("#form-login").submit(function (e) {
+     e.preventDefault()
+    $.ajax({
+        type: "post",
+        url: "/api/login",
+        data:$(this).serialize(),
+        success: function (res) {
+            // 注册成功返回 0成功 1失败
+            if(res.status !==0){
+                return layer.msg(res.message);
+            }
+
+            return layer.msg(res.message);
         }
     });
 })

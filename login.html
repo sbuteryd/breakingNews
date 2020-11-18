@@ -23,7 +23,7 @@
     <div class="title"></div>
     <!-- 登录-->
      <div class="login-box">
-         <form class="layui-form" >
+         <form class="layui-form "  id="form-login">
              <!-- 账户-->
              <div class="layui-form-item">
                  <i class="layui-icon layui-icon-username"></i>
@@ -41,13 +41,13 @@
                  <button class="layui-btn layui-btn-fluid  layui-btn-normal" lay-submit lay-filter="formDemo">登录</button>
              </div>
              <div class="layui-form-item links">
-                 <a id="form-reg" href="JavaScript:;">去注册账户</a>
+                 <a id="register-btn" href="JavaScript:;">去注册账户</a>
              </div>
          </form>
      </div>
     <!-- 注册-->
      <div class="regster-box">
-         <form class="layui-form register">
+         <form class="layui-form " id="form-register">
              <!-- 账户-->
              <div class="layui-form-item">
                  <i class="layui-icon layui-icon-username"></i>
@@ -71,7 +71,7 @@
                  <button  class="layui-btn layui-btn-fluid  layui-btn-normal" lay-submit lay-filter="formDemo">注册</button>
              </div>
              <div class="layui-form-item links">
-                 <a id="from-login" href="JavaScript:;">去登录</a>
+                 <a id="login-btn" href="JavaScript:;">去登录</a>
              </div>
 
          </form>
@@ -82,6 +82,8 @@
 <script src="layui.all.js"></script>
 <!--导入jquery-->
 <script src="./lib/jquery-3.5.1.js"></script>
+<!--导入base api-->
+<script src="./js/baseApi.js"></script>
 <!--导入自己的js-->
 <script src="./js/login.js"></script>
 
