@@ -1,0 +1,44 @@
+.iconfont  {
+    margin-right: 10px;
+}
+
+.layui-icon {
+    margin: 0 10px;
+}
+.layui-footer {
+    text-align: center;
+}
+.layui-body {
+    overflow: hidden;
+}
+.layui-body iframe{
+    width: 100%;
+    height: 100%;
+
+}
+/*去掉动画*/
+a {
+    transition: none !important;
+}
+
+.side-nav-avater {
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    user-select: none;
+}
+.layui-nav-img {
+    width: 40px;
+    height: 40px;
+}
+.text-avatar {
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    background: #1b6d85;
+}

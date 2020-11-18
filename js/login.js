@@ -1,16 +1,16 @@
 $(function () {
     //点击注册 隐藏登录
     $('#register-btn').on('click',function () {
-        $('.login-box').hide()
+        $('.login-box').hide();
         $('.regster-box').show()
-    })
+    });
     //点击登录 隐藏注册
     $('#login-btn').on('click',function () {
-        $('.regster-box').hide()
+        $('.regster-box').hide();
         $('.login-box').show()
     })
 
-})
+});
 
 //验证表单首先
 let form = layui.form;
@@ -20,7 +20,7 @@ form.verify({
     ,'密码必须6到12位，且不能出现空格'
     ],
     repassword: function(value, item){ //value：表单的值、item：表单的DOM对象
-        let password = $('.regster-box [name=password]').val()
+        let password = $('.regster-box [name=password]').val();
          if(password !== value) {
             return '两次密码不一致'
         }
@@ -42,7 +42,6 @@ $('#form-register').on("submit",function (e) {
         url: "/api/reguser",
         data:data,
         success: function (res) {
-            console.log(res)
         // 注册成功返回 0成功 1失败
             if(res.status !==0){
                 return layer.msg(res.message);
@@ -51,11 +50,11 @@ $('#form-register').on("submit",function (e) {
             return layer.msg(res.message);
         }
     });
-})
+});
 
 // 登录请求
 $("#form-login").submit(function (e) {
-     e.preventDefault()
+     e.preventDefault();
     $.ajax({
         type: "post",
         url: "/api/login",
@@ -65,8 +64,9 @@ $("#form-login").submit(function (e) {
             if(res.status !==0){
                 return layer.msg(res.message);
             }
-
+            localStorage.setItem('token',res.token);
+            location.href='/breakingNews/index.html'
             return layer.msg(res.message);
         }
     });
-})
+});
