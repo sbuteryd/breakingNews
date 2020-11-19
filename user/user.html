@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<!--      导入layui样式-->
+    <link rel="stylesheet" href="../css/layui.css">
+<!--    导入自己的样式-->
+    <link rel="stylesheet" href="../css/user/user.css">
+</head>
+<body>
+<!--卡片区域-->
+<div class="layui-card">
+    <div class="layui-card-header">修改用户信息</div>
+    <div class="layui-card-body">
+<!--        导入form表单-->
+        <form class="layui-form" lay-filter="formUserInfor">
+            <input type="hidden" name="id">
+            <div class="layui-form-item">
+                <label class="layui-form-label">登录名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="username" required  lay-verify="required" readonly placeholder="请输入登录名称"  autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">用户名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="nickname" required  lay-verify="required|nickname" placeholder="请输入用户名称" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">邮箱</label>
+                <div class="layui-input-block">
+                    <input type="text" name="email" required  lay-verify="required|email" placeholder="请输入邮箱" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="formDemo">提交修改</button>
+                    <button type="reset" class="layui-btn layui-btn-primary btnRest">重置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!--导入layui-js-->
+<script src="../layui.all.js"></script>
+<!--导入jquery-->
+<script src="../lib/jquery-3.5.1.js"></script>
+<!--导入baseUrl-->
+<script src="../js/baseApi.js"></script>
+<!--导入自己的js-->
+<script src="../js/user/user_infor.js"></script>
+</body>
+</html>
