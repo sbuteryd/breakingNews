@@ -22,5 +22,27 @@ $(function () {
             .attr('src', newImgURL)
             .cropper(options)
     })
+
+   $('.btnUpload').on('click',function (){
+       var dataURL = $image
+           .cropper('getCroppedCanvas', {
+               width: 100,
+               height: 100
+           }).toDataURL('image/png')
+        $.ajax({
+            type:'post',
+            url:'/my/update/avatar',
+            data:{
+                avatar:dataURL
+            },
+            success:function (res) {
+                if(res.status !==0){
+                    return  layer.msg('上传头像失败请重试')
+                }
+                window.parent.getUserInfor()
+                return  layer.msg(res.message)
+            }
+        })
+   })
 })
 
