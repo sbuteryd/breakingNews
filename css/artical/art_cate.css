@@ -7,3 +7,12 @@ html,body {
     justify-content: space-between;
     align-items: center;
 }
+.layui-layer-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#form-artical,#form-edit {
+    width: 100%;
+    padding-right: 30px;
+}
